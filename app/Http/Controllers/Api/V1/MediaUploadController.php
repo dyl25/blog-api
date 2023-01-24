@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMediaRequest;
-use App\Models\Video;
-use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateMediaRequest;
-use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Media;
 
 class MediaUploadController extends Controller

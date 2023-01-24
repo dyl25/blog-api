@@ -11,7 +11,7 @@ class Article extends Model
 
     const PATH = '/articles';
 
-    protected array $fillable = [
+    protected $fillable = [
         'title',
         'slug',
         'content',
