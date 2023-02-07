@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class ArticleService {
 
-    public function store(Request $request) {
-        return Article::create($request->validated());
+    public function store(array $request) {
+        return Article::create($request);
     }
 
 }

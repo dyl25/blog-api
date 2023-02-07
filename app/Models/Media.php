@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+
+    const ARTICLE_STORAGE_PATH = '/articles';
 }

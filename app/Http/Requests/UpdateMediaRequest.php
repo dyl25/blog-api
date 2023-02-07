@@ -2,7 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Article;
+use App\Models\Media;
+use App\Models\MediaType;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateMediaRequest extends FormRequest
 {
@@ -24,7 +28,11 @@ class UpdateMediaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id' => ['required', 'numeric',Rule::exists(Media::class)],
+            'media_type_id' => ['required', 'numeric',Rule::exists(MediaType::class)],
+            'article_id' => ['nullable', 'numeric',Rule::exists(Article::class)],
+            'files' => ['required'],
+            'files.*' => ['required', 'file', 'mimes:jpg,jpeg,bmp,gif,svg,webp', 'max:20000'],
         ];
     }
 }

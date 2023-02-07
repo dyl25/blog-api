@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Article;
 use App\Models\MediaType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -27,6 +28,8 @@ class StoreMediaRequest extends FormRequest
     {
         return [
             'media_type_id' => ['required', 'numeric',Rule::exists(MediaType::class)],
+            'files' => ['required'],
+            'files.*' => ['required', 'file', 'mimes:jpg,jpeg,bmp,gif,svg,webp', 'max:20000', ],
         ];
     }
 }
